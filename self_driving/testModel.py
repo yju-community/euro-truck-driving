@@ -47,8 +47,6 @@ def right():
 model = alexnet(WIDTH, HEIGHT, LR)
 model.load(MODEL_NAME)
 
-
-    # print('loop took {} seconds'.format(time.time()-last_time))
 def self_driving():
     last_time = time.time()
 

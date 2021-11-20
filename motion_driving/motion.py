@@ -7,9 +7,6 @@ from Modules.getkeys import key_check
 t_time = 0.09
 detector = HandDetector(maxHands=2)
 
-# cap_cam = cv2.VideoCapture(0)
-
-
 def straight():
     PressKey(W)
     ReleaseKey(A)
@@ -58,7 +55,6 @@ def motion_driving(cap_cam):
         lm_list1 = hand1['lmList']
         lm_list2 = hand2['lmList']
 
-        # length, info = detector.findDistance(lm_list1[8], lm_list2[8])
         length, info, img = detector.findDistance(
             lm_list1[8], lm_list2[8], img)  # with draw
         if hand1["type"] == 'Left':
@@ -76,7 +72,6 @@ def motion_driving(cap_cam):
         # 왼손이 right
         if length < 100:
             back()
-            # return True
         elif abs(left_hand.y - right_hand.y) < 100:
             straight()
         elif right_hand.y < left_hand.y - 100:
@@ -85,4 +80,6 @@ def motion_driving(cap_cam):
             left()
 
     cv2.imshow('cam', img)
-    # return False
+
+    if cv2.waitKey(1) == ord('t'):
+        print('on self driving mode')
