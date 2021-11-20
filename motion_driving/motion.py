@@ -1,13 +1,13 @@
-from cvzone.HandTrackingModule import HandDetector
-import cv2
-from directkeys import PressKey, ReleaseKey, W, A, S, D
 import time
-from getKeys import key_check
+import cv2
+from cvzone.HandTrackingModule import HandDetector
+from Modules.directkeys import PressKey, ReleaseKey, W, A, D, S
+from Modules.getkeys import key_check
 
 t_time = 0.09
 detector = HandDetector(maxHands=2)
 
-cap_cam = cv2.VideoCapture(0)
+# cap_cam = cv2.VideoCapture(0)
 
 
 def straight():
@@ -45,11 +45,8 @@ class Hand:
         self.x = x
         self.y = y
 
-
-while cap_cam.isOpened():
+def motion_driving(cap_cam):    
     ret, img = cap_cam.read()
-    if not ret:
-        break
 
     img = cv2.flip(img, 1)
 
@@ -70,7 +67,6 @@ while cap_cam.isOpened():
         elif hand1["type"] == 'Right':
             left_hand = Hand(info[2], info[3])
             right_hand = Hand(info[0], info[1])
-
         cv2.putText(img, text="left %.2f %.2f" % (left_hand.x, left_hand.y), org=(
             10, 50), fontFace=cv2.FONT_HERSHEY_SIMPLEX, fontScale=1, color=(0, 0, 0))
         cv2.putText(img, text='right %.2f %.2f' % (right_hand.x, right_hand.y), org=(
@@ -78,9 +74,9 @@ while cap_cam.isOpened():
 
         # 오른손이 left
         # 왼손이 right
-
         if length < 100:
             back()
+            # return True
         elif abs(left_hand.y - right_hand.y) < 100:
             straight()
         elif right_hand.y < left_hand.y - 100:
@@ -89,7 +85,4 @@ while cap_cam.isOpened():
             left()
 
     cv2.imshow('cam', img)
-
-    if cv2.waitKey(1) == ord('q'):
-        print('change')
-        break
+    # return False

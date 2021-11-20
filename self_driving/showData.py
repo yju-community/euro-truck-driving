@@ -1,11 +1,11 @@
 import numpy as np
 import cv2
 
-VERSION = 5
+VERSION = 1
 
-# train_data = np.load('../Dataset/training_data_v{}_balanced.npy'.format(VERSION), allow_pickle=True)
+# train_data = np.load('Dataset/training_data_v{}_balanced.npy'.format(VERSION), allow_pickle=True)
 train_data = np.load(
-    '../Dataset/training_data_v{}.npy'.format(VERSION), allow_pickle=True)
+    'Dataset/training_data_v{}.npy'.format(VERSION), allow_pickle=True)
 
 for data in train_data:
     img = data[0]

@@ -1,13 +1,13 @@
 import numpy as np
 from Modules.alexnet import alexnet  # CNN Convolution Neural Network
 
-VERSION = 5
+VERSION = 1
 
 WIDTH = 256
 HEIGHT = 160
 LR = 1e-3
 EPOCHS = 10
-MODEL_NAME = '../Models/euro-truck-fast-{}-{}-{}-epochs-300K-data.model'.format(
+MODEL_NAME = 'Models/euro-truck-fast-{}-{}-{}-epochs-300K-data.model'.format(
     LR, 'alexnetv2', EPOCHS)
 
 model = alexnet(WIDTH, HEIGHT, LR)
@@ -15,7 +15,7 @@ model = alexnet(WIDTH, HEIGHT, LR)
 for i in range(EPOCHS):
     for i in range(1, VERSION+1):
         train_data = np.load(
-            '../Dataset/training_data_v{}_balanced.npy'.format(i), allow_pickle=True)
+            'Dataset/training_data_v{}_balanced.npy'.format(i), allow_pickle=True)
 
         # 원하는 크기로 train, test 데이터를 나눔
         train = train_data[:-100]

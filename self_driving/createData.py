@@ -4,7 +4,7 @@ import time
 from Modules.getkeys import key_check
 import os
 
-VERSION = 5
+VERSION = 1
 
 
 def keys_to_output(keys):
@@ -23,7 +23,7 @@ def keys_to_output(keys):
     return output
 
 
-file_name = '../Dataset/training_data_v{}.npy'.format(VERSION)
+file_name = 'Dataset/training_data_v{}.npy'.format(VERSION)
 
 if os.path.isfile(file_name):
     print('File exists, loading previous data!')

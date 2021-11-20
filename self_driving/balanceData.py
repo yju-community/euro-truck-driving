@@ -3,10 +3,10 @@ import pandas as pd
 from collections import Counter
 from random import shuffle
 
-VERSION = 5
+VERSION = 1
 
 train_data = np.load(
-    '../Dataset/training_data_v{}.npy'.format(VERSION), allow_pickle=True)
+    'Dataset/training_data_v{}.npy'.format(VERSION), allow_pickle=True)
 
 df = pd.DataFrame(train_data)
 print(df.head())
@@ -39,4 +39,4 @@ rights = rights[:len(forwards)]
 final_data = forwards + lefts + rights
 shuffle(final_data)
 
-np.save('../Dataset/training_data_v{}_balanced.npy'.format(VERSION), final_data)
+np.save('Dataset/training_data_v{}_balanced.npy'.format(VERSION), final_data)
