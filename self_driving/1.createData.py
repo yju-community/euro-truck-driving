@@ -35,6 +35,7 @@ else:
 
 def main():
 
+    # 4초뒤 실행
     for i in list(range(4))[::-1]:
         print(i+1)
         time.sleep(1)

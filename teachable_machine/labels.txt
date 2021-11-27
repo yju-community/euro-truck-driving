@@ -1,0 +1,5 @@
+0 None
+1 Straight
+2 Back
+3 Left
+4 Right

@@ -23,3 +23,12 @@ pywin32 error
 
 root폴더에서 mkdir Dataset을 해주어야지 createData를 할 때 저장할 디렉토리가 생김
 createData를 할때마다 VERSION을 1씩 올려주어야됨
+
+opencv-python 4.5.4.58
+cvzone 1.5.3
+numpy 1.21.4
+pandas 1.3.4
+tflearn 0.5.0
+mediapipe 0.8.9
+tensorflow 2.7.0
+pywin32 302

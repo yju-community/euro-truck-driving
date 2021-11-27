@@ -5,8 +5,12 @@ from Modules.directkeys import PressKey, ReleaseKey, W, A, D, S
 from Modules.getkeys import key_check
 
 t_time = 0.09
-detector = HandDetector(maxHands=2)
 
+class Hand:
+    def __init__(self, x, y):
+        self.x = x
+        self.y = y
+        
 def straight():
     PressKey(W)
     ReleaseKey(A)
@@ -36,11 +40,7 @@ def back():
     time.sleep(t_time)
     ReleaseKey(S)
 
-
-class Hand:
-    def __init__(self, x, y):
-        self.x = x
-        self.y = y
+detector = HandDetector(maxHands=2)
 
 def motion_driving(cap_cam):    
     ret, img = cap_cam.read()
