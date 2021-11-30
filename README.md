@@ -15,7 +15,8 @@
 
 ### self-driving
 
-1 ~ 4 번까지의 VERSION 변수를 동일하게 맞춰주어야 한다.
+- 1 ~ 4 번까지의 VERSION 변수를 동일하게 맞춰야 함
+- 경로를 찾을 수 없을 경우, Models와 Dataset폴더 경로 앞에 ../ 를 붙여야 함
 
 # Library
 
